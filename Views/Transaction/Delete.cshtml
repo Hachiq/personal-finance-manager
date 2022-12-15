@@ -1,0 +1,43 @@
+﻿@model TransactionModel
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete category</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Category.Name">Category</label>
+            <input asp-for="Category.Name" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            @if (Model.IsExpense)
+            {
+                <label asp-for="IsExpense">Type</label>
+                <input value="Expense" disabled class="form-control" />
+            }
+            else if (!Model.IsExpense)
+            {
+                <label asp-for="IsExpense">Type</label>
+                <input value="Revenue" disabled class="form-control" />
+            }
+        </div>
+        <div class="mb-3">
+            <label asp-for="Value"></label>
+            <input asp-for="Value" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Date"></label>
+            <input asp-for="Date" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+        <a asp-controller="Transaction" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Go back
+        </a>
+    </div>
+</form>

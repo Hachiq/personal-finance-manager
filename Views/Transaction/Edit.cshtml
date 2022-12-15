@@ -1,0 +1,36 @@
+﻿@model TransactionModel
+
+<form method="post" style="width:60%">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit transaction</h2>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label asp-for="Category" class="control-label pt-3 pb-2"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+                </select>
+            </div> <br />
+            <div class="form-group">
+                <label asp-for="IsExpense" class="control-label pb-2">Type</label>
+                <select asp-for="IsExpense" class="form-control">
+                    <option value="True">Expense</option>
+                    <option value="False">Revenue</option>
+                </select>
+            </div> <br />
+            <label asp-for="Value"></label>
+            <input asp-for="Value" class="form-control mt-2" />
+            <span asp-validation-for="Value" class="text-danger"></span> <br />
+            <label asp-for="Date"></label>
+            <input asp-for="Date" class="form-control mt-2" />
+            <span asp-validation-for="Date" class="text-danger"></span> <br />
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control mt-2" />
+            <span asp-validation-for="Description" class="text-danger"></span> <br />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Edit</button>
+        <a asp-controller="Transaction" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Go back
+        </a>
+    </div>
+</form>
