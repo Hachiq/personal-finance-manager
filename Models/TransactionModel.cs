@@ -11,7 +11,7 @@ namespace FinanceManager.Models
         public double Value { get; set; }
         public DateTime Date { get; set; }
         [StringLength(100)]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } = string.Empty;
         public int CategoryId { get; set; }
         public virtual CategoryModel? Category { get; set; }
     }
