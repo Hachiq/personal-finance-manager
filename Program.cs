@@ -1,6 +1,6 @@
 using FinanceManager.Data;
 using FinanceManager.Services.CategoryService;
-using FinanceManager.Services.ReportService;
+using FinanceManager.Services.StatsService;
 using FinanceManager.Services.TransactionService;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +15,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<IStatsService, StatsService>();
 
 var app = builder.Build();
 
