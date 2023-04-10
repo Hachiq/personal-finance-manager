@@ -1,0 +1,38 @@
+﻿@model List<StatsViewModel>
+
+<table class="table table-bordered table-striped" style="width:60%">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Income</th>
+            <th>Expenses</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td style="width:40%">@row.CategoryName</td>
+                <td style="width:20%">@String.Format("{0:c}", row.Income)</td>
+                <td style="width:20%">@String.Format("{0:c}", row.Expenses)</td>
+                <td style="width:20%">@String.Format("{0:c}", row.Balance)</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3" class="text-center">
+                <strong>Total</strong>
+            </td>
+            <td>
+                <strong>@String.Format("{0:c}", Total())</strong>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@{
+    double Total()
+    {
+        return Model.Sum(e => e.Income) - Model.Sum(i => i.Expenses);
+    }
+}
